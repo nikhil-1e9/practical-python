@@ -19,3 +19,4 @@ print('Number of days', day)
 print('Number of bills', num_bills)
 print('Final height', num_bills * bill_thickness)
 
+
