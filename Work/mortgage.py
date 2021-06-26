@@ -40,7 +40,7 @@ Modify the program to print out a table showing the month, total paid so far, an
 Total paid 880074.1
 Months 310
 '''
-
+# Solution
 principal = 500000.0
 rate = 0.05
 payment = 2684.11
