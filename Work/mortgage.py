@@ -67,7 +67,6 @@ while principal > 0:
     month += 1
     print(month, round(total_paid, ndigits=2), round(principal, ndigits=2))
 
-print('Total paid', round(total_paid, ndigits=2))
-print('Total months', month)
+print(f'Total amount of ${round(total_paid, ndigits=2)} was paid in a total of {month} months.')
 
 
