@@ -112,7 +112,19 @@ Tie all of this work together by adding a few additional statements to your repo
 in Exercise 2.5 and the dictionary of prices in Exercise 2.6 and compute the current value of the portfolio along with the gain/loss.
 '''
 
-
+def curr_portfolio(stocks_list, stocks_dict):
+    report = [('name', 'shares', 'curr_price', 'change')]
+    
+    for stock in stocks_list:
+        name = stock['name']
+        shares = stock['shares']
+        price = stock['price']
+        curr_price = stocks_dict[name]
+        change = curr_price - price
+        
+        report.append((name, shares, curr_price, round(change, 2)))
+        
+    return report
 
 
 
