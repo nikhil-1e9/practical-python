@@ -158,4 +158,3 @@ for r in report:
     print('%10s %10d %10s %10.2f' % r)
 
     
-
