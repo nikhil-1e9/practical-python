@@ -127,6 +127,35 @@ def curr_portfolio(stocks_list, stocks_dict):
     return report
 
 
+#
+# Exercises 2.8 to 2.12
 
+def make_report(stocks, prices):
+    report = []
+    
+    for stock in stocks:
+        name = stock['name']
+        shares = stock['shares']
+        price = stock['price']
+        curr_price = prices[name]
+        change = curr_price - price
+        
+        report.append((name, shares, '$'+str(curr_price), change))
+        
+    return report
 
+# Reading the portfolio list and prices dictionary and making report
+portfolio = read_portfolio('Data/portfolio.csv')
+prices = read_prices('Data/prices.csv')
+report = make_report(portfolio, prices)
+
+# String Formatting to make a table 
+headers = ('Name', 'Shares', 'Price', 'Change')
+separators = ('-' * 10 + ' ') * 4
+print('%10s %10s %10s %10s' % headers)
+print(separators)
+for r in report:
+    print('%10s %10d %10s %10.2f' % r)
+
+    
 
