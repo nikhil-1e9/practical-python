@@ -26,9 +26,9 @@ Exercise 2.15: A practical enumerate() example
 Recall that the file Data/missing.csv contains data for a stock portfolio, but has some rows with missing data. Using enumerate(), modify your pcost.py program so that 
 it prints a line number with the warning message when it encounters bad input.
 '''
+import csv
 
 def portfolio_cost(filename):
-    import csv
     
     total = 0.0
 
@@ -48,5 +48,32 @@ def portfolio_cost(filename):
 
 
 cost = portfolio_cost('Data/missing.csv')
+
+'''
+Exercise 2.16: Using the zip() function
+'''
+
+def portfolio_cost(filename):
+    
+    total = 0.0
+
+    with open(filename, 'rt') as f:
+        rows = csv.reader(f)
+        headers = next(rows)
+        for rownum, row in enumerate(rows, start=1):
+            record = dict(zip(headers, row))
+            try:
+                nshares = int(record['shares'])
+                price = float(record['price'])
+            except ValueError:
+                print(f'Row {rownum}: Couldn\'t convert: {row}')
+            
+            total += nshares * price
+        
+        return total
+
+
+cost = portfolio_cost('Data/portfoliodate.csv')
+
 
 
